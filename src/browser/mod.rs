@@ -107,9 +107,13 @@ impl Browser {
     /// Calls [`Browser::new`] with options to launch a headless browser using whatever Chrome / Chromium
     /// binary can be found on the system.
     pub fn default() -> Result<Self> {
-        let launch_options = LaunchOptions::default_builder()
+         let mut launch_options = LaunchOptions::default_builder()
             .path(Some(default_executable().map_err(|e| anyhow!(e))?))
             .build()?;
+        // Add LANGUAGE=fr as process env
+        let envs: HashMap<String, String> = HashMap::new();
+        envs.insert("LANGUAGE", "fr");
+        launch_options.process_envs = Some(envs);
         Self::new(launch_options)
     }
 
