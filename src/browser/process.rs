@@ -345,8 +345,9 @@ impl Process {
             args.extend([window_size_option.as_str()]);
         }
 
+        // TODO: add lang in launch_options
         if launch_options.headless {
-            args.extend(["--headless=new"]);
+            args.extend(["--headless=new", "--lang=fr"]);
         }
 
         if launch_options.ignore_certificate_errors {
