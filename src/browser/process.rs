@@ -347,7 +347,7 @@ impl Process {
 
         // TODO: add lang in launch_options
         if launch_options.headless {
-            args.extend(["--headless=new", "--lang=fr"]);
+            args.extend(["--headless=new", "--lang=fr_FR"]);
         }
 
         if launch_options.ignore_certificate_errors {
