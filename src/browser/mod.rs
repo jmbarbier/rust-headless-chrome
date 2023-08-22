@@ -112,7 +112,7 @@ impl Browser {
             .path(Some(default_executable().map_err(|e| anyhow!(e))?))
             .build()?;
         // Add LANGUAGE=fr as process env
-        let envs: HashMap<String, String> = HashMap::new();
+        let mut envs: HashMap<String, String> = HashMap::new();
         envs.insert("LANGUAGE".to_string(), "fr".to_string());
         launch_options.process_envs = Some(envs);
         Self::new(launch_options)
