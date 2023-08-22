@@ -346,7 +346,7 @@ impl Process {
         }
 
         if launch_options.headless {
-            args.extend(["--headless"]);
+            args.extend(["--headless=new"]);
         }
 
         if launch_options.ignore_certificate_errors {
